@@ -28,12 +28,12 @@
         "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\drawable-v24\\outline_navigation_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_outline_search_black_24dp.png.flat",
-        "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\drawable-v24\\outline_search_black_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_email.png.flat",
         "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\drawable-v24\\email.png"
+    },
+    {
+        "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_outline_search_black_24dp.png.flat",
+        "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\drawable-v24\\outline_search_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable_outline_place_black_24dp.png.flat",
@@ -66,6 +66,10 @@
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icons8_medecin_50.png.flat",
         "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\drawable-v24\\icons8_medecin_50.png"
+    },
+    {
+        "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_icons8_camera.png.flat",
+        "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\mipmap-mdpi\\icons8_camera.png"
     },
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_outline_delete_black_24dp.png.flat",
@@ -114,6 +118,10 @@
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_outline_clear_black_24dp.png.flat",
         "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\drawable-v24\\outline_clear_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_enregistrer_serie.xml.flat",
+        "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\layout\\activity_enregistrer_serie.xml"
     },
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_big_hospital.png.flat",

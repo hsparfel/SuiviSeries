@@ -30,6 +30,8 @@ public class DaoMaster extends AbstractDaoMaster {
         ProfessionDao.createTable(db, ifNotExists);
         RegionDao.createTable(db, ifNotExists);
         SavoirFaireDao.createTable(db, ifNotExists);
+        SerieDao.createTable(db, ifNotExists);
+        SuiviDao.createTable(db, ifNotExists);
         TypeEtablissementDao.createTable(db, ifNotExists);
     }
 
@@ -44,6 +46,8 @@ public class DaoMaster extends AbstractDaoMaster {
         ProfessionDao.dropTable(db, ifExists);
         RegionDao.dropTable(db, ifExists);
         SavoirFaireDao.dropTable(db, ifExists);
+        SerieDao.dropTable(db, ifExists);
+        SuiviDao.dropTable(db, ifExists);
         TypeEtablissementDao.dropTable(db, ifExists);
     }
 
@@ -72,6 +76,8 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(ProfessionDao.class);
         registerDaoClass(RegionDao.class);
         registerDaoClass(SavoirFaireDao.class);
+        registerDaoClass(SerieDao.class);
+        registerDaoClass(SuiviDao.class);
         registerDaoClass(TypeEtablissementDao.class);
     }
 

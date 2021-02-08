@@ -2193,6 +2193,7 @@ layout activity_afficher_mes_contacts
 layout activity_afficher_mes_etablissements
 layout activity_chercher_contact
 layout activity_chercher_etablissement
+layout activity_enregistrer_serie
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2289,6 +2290,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu bottom_navigation_menu
 menu menu_activity_main
+mipmap icons8_camera
 mipmap icons8_docteur
 mipmap icons8_garage
 plurals mtrl_badge_content_description

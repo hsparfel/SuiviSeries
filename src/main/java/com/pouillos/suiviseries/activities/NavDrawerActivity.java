@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +40,7 @@ import com.pouillos.suiviseries.dao.ImportEtablissementDao;
 import com.pouillos.suiviseries.dao.ProfessionDao;
 import com.pouillos.suiviseries.dao.RegionDao;
 import com.pouillos.suiviseries.dao.SavoirFaireDao;
+import com.pouillos.suiviseries.dao.SerieDao;
 import com.pouillos.suiviseries.dao.TypeEtablissementDao;
 import com.pouillos.suiviseries.entities.Departement;
 
@@ -70,6 +75,8 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
     protected EtablissementDao etablissementDao;
     protected ContactIgnoreDao contactIgnoreDao;
 
+    protected SerieDao serieDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +92,8 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
         etablissementDao = daoSession.getEtablissementDao();
         importEtablissementDao = daoSession.getImportEtablissementDao();
         contactIgnoreDao = daoSession.getContactIgnoreDao();
+
+        serieDao = daoSession.getSerieDao();
     }
 
     @Override
@@ -248,5 +257,19 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
 
         }
         return departement;
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        View view = getCurrentFocus();
+        if (view != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) && view instanceof EditText && !view.getClass().getName().startsWith("android.webkit.")) {
+            int scrcoords[] = new int[2];
+            view.getLocationOnScreen(scrcoords);
+            float x = ev.getRawX() + view.getLeft() - scrcoords[0];
+            float y = ev.getRawY() + view.getTop() - scrcoords[1];
+            if (x < view.getLeft() || x > view.getRight() || y < view.getTop() || y > view.getBottom())
+                ((InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }
