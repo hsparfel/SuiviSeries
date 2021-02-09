@@ -26,6 +26,7 @@ public class SerieDao extends AbstractDao<Serie, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Nom = new Property(1, String.class, "nom", false, "NOM");
+        public final static Property Fini = new Property(2, boolean.class, "fini", false, "FINI");
     }
 
 
@@ -42,7 +43,8 @@ public class SerieDao extends AbstractDao<Serie, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"SERIE\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
-                "\"NOM\" TEXT NOT NULL );"); // 1: nom
+                "\"NOM\" TEXT NOT NULL ," + // 1: nom
+                "\"FINI\" INTEGER NOT NULL );"); // 2: fini
     }
 
     /** Drops the underlying database table. */
@@ -60,6 +62,7 @@ public class SerieDao extends AbstractDao<Serie, Long> {
             stmt.bindLong(1, id);
         }
         stmt.bindString(2, entity.getNom());
+        stmt.bindLong(3, entity.getFini() ? 1L: 0L);
     }
 
     @Override
@@ -71,6 +74,7 @@ public class SerieDao extends AbstractDao<Serie, Long> {
             stmt.bindLong(1, id);
         }
         stmt.bindString(2, entity.getNom());
+        stmt.bindLong(3, entity.getFini() ? 1L: 0L);
     }
 
     @Override
@@ -82,7 +86,8 @@ public class SerieDao extends AbstractDao<Serie, Long> {
     public Serie readEntity(Cursor cursor, int offset) {
         Serie entity = new Serie( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.getString(offset + 1) // nom
+            cursor.getString(offset + 1), // nom
+            cursor.getShort(offset + 2) != 0 // fini
         );
         return entity;
     }
@@ -91,6 +96,7 @@ public class SerieDao extends AbstractDao<Serie, Long> {
     public void readEntity(Cursor cursor, Serie entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setNom(cursor.getString(offset + 1));
+        entity.setFini(cursor.getShort(offset + 2) != 0);
      }
     
     @Override

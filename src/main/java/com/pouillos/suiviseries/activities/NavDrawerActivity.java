@@ -3,7 +3,6 @@ package com.pouillos.suiviseries.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -12,7 +11,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,79 +19,39 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 import com.pouillos.suiviseries.R;
-import com.pouillos.suiviseries.activities.afficher.AfficherMesContactsActivity;
-import com.pouillos.suiviseries.activities.afficher.AfficherMesEtablissementsActivity;
-import com.pouillos.suiviseries.activities.recherche.ChercherContactActivity;
-import com.pouillos.suiviseries.activities.recherche.ChercherEtablissementActivity;
 import com.pouillos.suiviseries.dao.AppOpenHelper;
-import com.pouillos.suiviseries.dao.ContactDao;
-import com.pouillos.suiviseries.dao.ContactIgnoreDao;
 import com.pouillos.suiviseries.dao.DaoMaster;
 import com.pouillos.suiviseries.dao.DaoSession;
-import com.pouillos.suiviseries.dao.DepartementDao;
-import com.pouillos.suiviseries.dao.EtablissementDao;
-import com.pouillos.suiviseries.dao.ImportContactDao;
-import com.pouillos.suiviseries.dao.ImportEtablissementDao;
-
-import com.pouillos.suiviseries.dao.ProfessionDao;
-import com.pouillos.suiviseries.dao.RegionDao;
-import com.pouillos.suiviseries.dao.SavoirFaireDao;
+import com.pouillos.suiviseries.dao.EpisodeDao;
+import com.pouillos.suiviseries.dao.SaisonDao;
 import com.pouillos.suiviseries.dao.SerieDao;
-import com.pouillos.suiviseries.dao.TypeEtablissementDao;
-import com.pouillos.suiviseries.entities.Departement;
 
 import org.greenrobot.greendao.database.Database;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import icepick.Icepick;
 
 public class NavDrawerActivity<T> extends AppCompatActivity {
     //FOR DESIGN
-
     protected Toolbar toolbar;
     protected DrawerLayout drawerLayout;
-    protected NavigationView navigationView;
     protected BottomNavigationView bottomNavigationView;
-
     protected DaoSession daoSession;
-
-    protected ContactDao contactDao;
-    protected DepartementDao departementDao;
-    protected ImportContactDao importContactDao;
-    protected ImportEtablissementDao importEtablissementDao;
-    protected ProfessionDao professionDao;
-    protected RegionDao regionDao;
-    protected SavoirFaireDao savoirFaireDao;
-    protected TypeEtablissementDao typeEtablissementDao;
-    protected EtablissementDao etablissementDao;
-    protected ContactIgnoreDao contactIgnoreDao;
-
     protected SerieDao serieDao;
+    protected SaisonDao saisonDao;
+    protected EpisodeDao episodeDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialiserDao();
-
-        contactDao = daoSession.getContactDao();
-        departementDao = daoSession.getDepartementDao();
-        importContactDao = daoSession.getImportContactDao();
-        professionDao = daoSession.getProfessionDao();
-        regionDao = daoSession.getRegionDao();
-        savoirFaireDao = daoSession.getSavoirFaireDao();
-        typeEtablissementDao = daoSession.getTypeEtablissementDao();
-        etablissementDao = daoSession.getEtablissementDao();
-        importEtablissementDao = daoSession.getImportEtablissementDao();
-        contactIgnoreDao = daoSession.getContactIgnoreDao();
-
         serieDao = daoSession.getSerieDao();
+        saisonDao = daoSession.getSaisonDao();
+        episodeDao = daoSession.getEpisodeDao();
     }
 
     @Override
@@ -134,18 +92,10 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
                             case R.id.bottom_navigation_home:
                                 ouvrirActiviteSuivante(NavDrawerActivity.this, AccueilActivity.class, true);
                                 break;
-                            case R.id.bottom_navigation_search_doctor:
-                                ouvrirActiviteSuivante(NavDrawerActivity.this, ChercherContactActivity.class, true);
+                            case R.id.bottom_navigation_add_serie:
+                                ouvrirActiviteSuivante(NavDrawerActivity.this, EnregistrerSerieActivity.class, true);
                                 break;
-                            case R.id.bottom_navigation_search_etablissement:
-                                ouvrirActiviteSuivante(NavDrawerActivity.this, ChercherEtablissementActivity.class, true);
-                                break;
-                            case R.id.bottom_navigation_list_doctor:
-                                ouvrirActiviteSuivante(NavDrawerActivity.this, AfficherMesContactsActivity.class, true);
-                                break;
-                            case R.id.bottom_navigation_list_etablissement:
-                                ouvrirActiviteSuivante(NavDrawerActivity.this, AfficherMesEtablissementsActivity.class, true);
-                                break;
+
                         }
                         return true;
                     }
@@ -198,45 +148,6 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
         return super.getMainExecutor();
     }
 
-    protected boolean isFilled(Object object){
-        boolean bool;
-        if (object!=null) {
-            bool = true;
-        } else {
-            bool = false;
-        }
-        return bool;
-    }
-
-    protected boolean isValidTel(TextView textView) {
-        if (!TextUtils.isEmpty(textView.getText()) && textView.getText().length() <10) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    protected boolean isValidZip(TextView textView) {
-        if (!TextUtils.isEmpty(textView.getText()) && textView.getText().length() <5) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    protected boolean isEmailAdress(String email){
-        Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
-        Matcher m = p.matcher(email.toUpperCase());
-        return m.matches();
-    }
-    protected boolean isValidEmail(TextView textView) {
-        if (!TextUtils.isEmpty(textView.getText()) && !isEmailAdress(textView.getText().toString())) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public DaoSession getDaoSession() {
         return daoSession;
     }
@@ -246,17 +157,6 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
         Database db = helper.getWritableDb();
         DaoMaster daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();
-    }
-
-    public Departement findDepartement(String cp) {
-        Departement departement;
-        if (!cp.equalsIgnoreCase("")) {
-            departement = departementDao.queryRaw("where numero = ?",cp.substring(0,2)).get(0);
-        } else {
-            departement = departementDao.queryRaw("where numero = ?","XX").get(0);
-
-        }
-        return departement;
     }
 
     @Override

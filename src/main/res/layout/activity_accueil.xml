@@ -9,14 +9,12 @@
     tools:openDrawer="start"
     tools:context=".activities.AccueilActivity">
 
-    <!-- 1 | MainActivity RootView -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
 
-        <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/activity_main_toolbar"
             android:layout_width="match_parent"
@@ -24,68 +22,23 @@
             android:background="?attr/colorPrimary"
             app:theme="@style/ToolBarStyle"/>
 
-        <ProgressBar
-            android:id="@+id/my_progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="false"
-            android:visibility="gone"
-            android:max="100"
-            android:progress="0"
-            />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-
         <EditText
             android:layout_width="0dp"
             android:layout_height="30dp" />
 
-        <Button
-            android:id="@+id/btnImportContact"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:layout_marginBottom="10dip"
-            android:onClick="importContact"
-            android:text="Import Contact" />
-
-        <TextView
-            android:id="@+id/textNbContact"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
+            android:layout_height="wrap_content">
+            <AutoCompleteTextView
+                android:id="@+id/selectSerie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="@string/select"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnImportEtablissement"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:layout_marginBottom="10dip"
-            android:onClick="importEtablissement"
-            android:text="Import Etablissement" />
-
-        <TextView
-            android:id="@+id/textNbEtablissement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-
-        <Button
-            android:id="@+id/btnRaz"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:layout_marginBottom="10dip"
-            android:onClick="razDb"
-            android:text="Raz DB" />
     </LinearLayout>
 
     <LinearLayout
@@ -100,19 +53,6 @@
             app:menu="@menu/bottom_navigation_menu"
             app:labelVisibilityMode="labeled"/>
 
-
     </LinearLayout>
-<!-- 2 | NavigationView
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/activity_main_nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/activity_accueil_nav_header"
-        app:menu="@menu/activity_accueil_menu_drawer" />-->
-
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pouillos.suiviseries"
     android:targetSandboxVersion="2"
-    android:versionCode="2"
+    android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -20,18 +20,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-
-        <!--
-        <activity android:name=".activities.AccueilActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
-
-        <activity android:name="com.pouillos.suiviseries.activities.EnregistrerSerieActivity" >
+        <activity android:name="com.pouillos.suiviseries.activities.AccueilActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,22 +28,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.pouillos.suiviseries.activities.recherche.ChercherEtablissementActivity"
+            android:name="com.pouillos.suiviseries.activities.EnregistrerSerieActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.pouillos.suiviseries.activities.recherche.ChercherContactActivity"
+            android:name="com.pouillos.suiviseries.activities.AfficherSaisonActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.pouillos.suiviseries.activities.afficher.AfficherEtablissementActivity"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.pouillos.suiviseries.activities.afficher.AfficherContactActivity"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.pouillos.suiviseries.activities.afficher.AfficherMesEtablissementsActivity"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.pouillos.suiviseries.activities.afficher.AfficherMesContactsActivity"
+            android:name="com.pouillos.suiviseries.activities.AfficherEpisodeActivity"
             android:windowSoftInputMode="stateHidden" />
     </application>
 

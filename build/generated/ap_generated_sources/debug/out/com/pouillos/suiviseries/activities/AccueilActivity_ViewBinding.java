@@ -2,8 +2,7 @@
 package com.pouillos.suiviseries.activities;
 
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.AutoCompleteTextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
@@ -24,10 +23,7 @@ public class AccueilActivity_ViewBinding implements Unbinder {
   public AccueilActivity_ViewBinding(AccueilActivity target, View source) {
     this.target = target;
 
-    target.textView = Utils.findRequiredViewAsType(source, R.id.textView, "field 'textView'", TextView.class);
-    target.textNbContact = Utils.findRequiredViewAsType(source, R.id.textNbContact, "field 'textNbContact'", TextView.class);
-    target.textNbEtablissement = Utils.findRequiredViewAsType(source, R.id.textNbEtablissement, "field 'textNbEtablissement'", TextView.class);
-    target.progressBar = Utils.findRequiredViewAsType(source, R.id.my_progressBar, "field 'progressBar'", ProgressBar.class);
+    target.selectedSerie = Utils.findRequiredViewAsType(source, R.id.selectSerie, "field 'selectedSerie'", AutoCompleteTextView.class);
   }
 
   @Override
@@ -37,9 +33,6 @@ public class AccueilActivity_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.textView = null;
-    target.textNbContact = null;
-    target.textNbEtablissement = null;
-    target.progressBar = null;
+    target.selectedSerie = null;
   }
 }

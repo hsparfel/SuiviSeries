@@ -9,32 +9,18 @@
         android:roundIcon="@mipmap/icons8_camera"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--   <activity android:name=".activities.AccueilActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>   -->
-
-        <activity android:name=".activities.EnregistrerSerieActivity">
+        <activity android:name=".activities.AccueilActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.recherche.ChercherEtablissementActivity"
+        <activity android:name=".activities.EnregistrerSerieActivity"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activities.recherche.ChercherContactActivity"
+        <activity android:name=".activities.AfficherSaisonActivity"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activities.afficher.AfficherEtablissementActivity"
-        android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activities.afficher.AfficherContactActivity"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activities.afficher.AfficherMesEtablissementsActivity"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activities.afficher.AfficherMesContactsActivity"
+        <activity android:name=".activities.AfficherEpisodeActivity"
             android:windowSoftInputMode="stateHidden"/>
     </application>
 
