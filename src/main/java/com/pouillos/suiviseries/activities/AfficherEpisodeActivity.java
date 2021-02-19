@@ -108,8 +108,6 @@ public class AfficherEpisodeActivity extends NavDrawerActivity implements Recycl
         Episode episode = listEpisode.get(position);
         episode.setVu(!episode.getVu());
         episodeDao.update(episode);
-        //episodeDao.queryRaw("select * from ");
-        //HomeItem2 homeItem2Dao = ((Application) context.getApplicationContext()).getDaoSession().getHomeItem2Dao();
         QueryBuilder<Episode> queryBuilder =
                 episodeDao.queryBuilder().where(
                         EpisodeDao.Properties.Vu.eq(true),
@@ -122,4 +120,3 @@ public class AfficherEpisodeActivity extends NavDrawerActivity implements Recycl
         configureRecyclerView();
     }
 }
-

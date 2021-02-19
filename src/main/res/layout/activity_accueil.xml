@@ -39,6 +39,12 @@
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_recycler_saison"
+            android:layout_width="match_parent"
+            android:layout_height="400dip"
+            />
+
     </LinearLayout>
 
     <LinearLayout

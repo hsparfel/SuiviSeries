@@ -1,5 +1,7 @@
 package com.pouillos.suiviseries.entities;
 
+import com.pouillos.suiviseries.utils.BasicUtils;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;

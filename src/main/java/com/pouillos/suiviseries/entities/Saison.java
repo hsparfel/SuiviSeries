@@ -73,7 +73,7 @@ public class Saison implements Comparable<Saison> {
 
 
         return string;*/
-        return "Episode "+ BasicUtils.afficherChiffre(this.numSaison)+" - "+this.getNbEpisodes()+" episodes - "+this.getLangage() +((this.getVu()) ? " - vu" :"");
+        return "Saison "+ BasicUtils.afficherChiffre(this.numSaison)+" - "+this.getNbEpisodes()+" episodes - "+this.getLangage() +((this.getVu()) ? " - vu" :"");
     }
 
     @Override

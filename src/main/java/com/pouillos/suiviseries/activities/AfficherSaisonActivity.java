@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
     import android.widget.CompoundButton;
-    import android.widget.Toast;
 
     import androidx.annotation.RequiresApi;
     import androidx.recyclerview.widget.LinearLayoutManager;
@@ -84,7 +83,7 @@ public class AfficherSaisonActivity extends NavDrawerActivity implements Recycle
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Icepick.restoreInstanceState(this, savedInstanceState);
-        setContentView(R.layout.activity_afficher_serie);
+        setContentView(R.layout.activity_afficher_saison);
 
         this.configureToolBar();
         this.configureBottomView();
@@ -193,23 +192,14 @@ public class AfficherSaisonActivity extends NavDrawerActivity implements Recycle
                 episodeToCreate.setVu(false);
                 episodeDao.insert(episodeToCreate);
             }
-
             finish();
             startActivity(getIntent());
         }
-
-        //serieTransmise.setIsSelected(true);
-        //etablissementDao.update(serieTransmise);
-        //fabSave.hide();
     }
     @OnClick(R.id.fabCancel)
     public void fabCancelClick() {
         hideAllFields();
         clearFields();
-        //serieTransmise.setIsSelected(true);
-        //etablissementDao.update(serieTransmise);
-        //fabSave.hide();
-
     }
 
     public void addSaison(View view) {
@@ -220,14 +210,12 @@ public class AfficherSaisonActivity extends NavDrawerActivity implements Recycle
 
     @Override
     public void onClickSaisonButton(int position) {
-        //Etablissement etablissement = listEtablissement.get(position);
         Saison saison = listSaison.get(position);
         ouvrirActiviteSuivante(this, AfficherEpisodeActivity.class,"saisonId",saison.getId(),false);
     }
 
     public boolean verifChamps() {
         boolean bool = true;
-        //List<Serie> listSerie = serieDao.queryRaw("where nom = ?",textName.getText().toString().toUpperCase());
         if (textNbEpisode.getText().toString().equalsIgnoreCase("")) {
             layoutNbEpisode.setError(getString(R.string.text_needed));
             bool = false;
@@ -236,6 +224,5 @@ public class AfficherSaisonActivity extends NavDrawerActivity implements Recycle
         }
         return bool;
     }
-
 }
 

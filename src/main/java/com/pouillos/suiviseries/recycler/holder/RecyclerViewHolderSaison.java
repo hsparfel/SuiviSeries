@@ -31,17 +31,13 @@ public class RecyclerViewHolderSaison extends RecyclerView.ViewHolder implements
     }
 
     public void updateWithSaison(Saison saison, RecyclerAdapterSaison.Listener callback){
-      //  this.detail.setText("Saison " + BasicUtils.afficherChiffre(Saison.getNumSaison())+" - "+Saison.getNbEpisodes()+" episodes - "+Saison.getLangage());
-
         this.detail.setText(saison.toString());
         this.detail.setOnClickListener(this);
-        //4 - Create a new weak Reference to our Listener
         this.callbackWeakRef = new WeakReference<RecyclerAdapterSaison.Listener>(callback);
     }
 
     @Override
     public void onClick(View view) {
-        // 5 - When a click happens, we fire our listener.
         RecyclerAdapterSaison.Listener callback = callbackWeakRef.get();
         if (callback != null) callback.onClickSaisonButton(getAdapterPosition());
     }

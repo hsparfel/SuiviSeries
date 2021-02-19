@@ -20,8 +20,8 @@
         "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\drawable-v24\\outline_add_circle_outline_black_18dp.png"
     },
     {
-        "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_afficher_serie.xml.flat",
-        "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\layout\\activity_afficher_serie.xml"
+        "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_afficher_saison.xml.flat",
+        "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\layout\\activity_afficher_saison.xml"
     },
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_accueil.xml.flat",
@@ -50,6 +50,10 @@
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_icons8_camera.png.flat",
         "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\mipmap-mdpi\\icons8_camera.png"
+    },
+    {
+        "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\layout_recycler_list_serie.xml.flat",
+        "source": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\src\\main\\res\\layout\\recycler_list_serie.xml"
     },
     {
         "merged": "C:\\Users\\TNH\\AndroidStudioProjects\\SuiviSeries\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_activity_main.xml.flat",

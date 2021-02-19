@@ -32,14 +32,11 @@ public class RecyclerViewHolderEpisode extends RecyclerView.ViewHolder implement
     public void updateWithEpisode(Episode episode, RecyclerAdapterEpisode.Listener callback){
         this.detail.setText(episode.toString());
         this.detail.setOnClickListener(this);
-
-        //4 - Create a new weak Reference to our Listener
         this.callbackWeakRef = new WeakReference<RecyclerAdapterEpisode.Listener>(callback);
     }
 
     @Override
     public void onClick(View view) {
-        // 5 - When a click happens, we fire our listener.
         RecyclerAdapterEpisode.Listener callback = callbackWeakRef.get();
         if (callback != null) callback.onClickEpisodeButton(getAdapterPosition());
     }

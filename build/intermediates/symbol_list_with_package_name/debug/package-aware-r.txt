@@ -2109,7 +2109,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_accueil
 layout activity_afficher_episode
-layout activity_afficher_serie
+layout activity_afficher_saison
 layout activity_enregistrer_serie
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2187,6 +2187,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout recycler_list_episode
 layout recycler_list_saison
+layout recycler_list_serie
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

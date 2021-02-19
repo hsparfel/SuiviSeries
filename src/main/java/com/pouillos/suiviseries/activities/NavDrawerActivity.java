@@ -56,14 +56,12 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //2 - Inflate the menu and add it to the Toolbar
         getMenuInflater().inflate(R.menu.menu_activity_main, menu);
         return true;
     }
 
     @Override
     public void onBackPressed() {
-        // 5 - Handle back click to close menu
         if (this.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             this.drawerLayout.closeDrawer(GravityCompat.START);
         } else {
@@ -74,14 +72,9 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent myProfilActivity;
-        //3 - Handle actions on menu items
       return true;
     }
-    // ---------------------
-    // CONFIGURATION
-    // ---------------------
 
-    // 2 - Configure BottomNavigationView Listener
     public void configureBottomView(){
         this.bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
@@ -102,7 +95,6 @@ public class NavDrawerActivity<T> extends AppCompatActivity {
                 });
     }
 
-    // 1 - Configure Toolbar
     public void configureToolBar() {
         this.toolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
         setSupportActionBar(toolbar);

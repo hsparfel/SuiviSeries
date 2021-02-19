@@ -11,7 +11,7 @@
 9-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:5:5-25:19
+11-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:5:5-26:19
 12        android:allowBackup="true"
 12-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -29,38 +29,41 @@
 20        android:testOnly="true"
 21        android:theme="@style/AppTheme" >
 21-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:11:9-40
-22        <activity android:name="com.pouillos.suiviseries.activities.AccueilActivity" >
-22-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:12:9-18:20
-22-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:12:19-61
-23            <intent-filter>
-23-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:13:13-17:29
-24                <action android:name="android.intent.action.MAIN" />
-24-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:14:17-69
-24-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:14:25-66
-25
-26                <category android:name="android.intent.category.LAUNCHER" />
-26-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:16:17-77
-26-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:16:27-74
-27            </intent-filter>
-28        </activity>
-29        <activity
-29-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:19:9-20:56
-30            android:name="com.pouillos.suiviseries.activities.EnregistrerSerieActivity"
-30-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:19:19-70
-31            android:windowSoftInputMode="stateHidden" />
-31-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:20:13-54
-32        <activity
-32-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:21:9-22:56
-33            android:name="com.pouillos.suiviseries.activities.AfficherSaisonActivity"
-33-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:21:19-68
-34            android:windowSoftInputMode="stateHidden" />
-34-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:22:13-54
-35        <activity
-35-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:23:9-24:56
-36            android:name="com.pouillos.suiviseries.activities.AfficherEpisodeActivity"
-36-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:23:19-69
-37            android:windowSoftInputMode="stateHidden" />
-37-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:24:13-54
-38    </application>
-39
-40</manifest>
+22        <activity
+22-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:12:9-19:20
+23            android:name="com.pouillos.suiviseries.activities.AccueilActivity"
+23-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:12:19-61
+24            android:windowSoftInputMode="stateHidden" >
+24-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:13:13-54
+25            <intent-filter>
+25-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:14:13-18:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:15:17-69
+26-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:15:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:17:17-77
+28-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:17:27-74
+29            </intent-filter>
+30        </activity>
+31        <activity
+31-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:20:9-21:56
+32            android:name="com.pouillos.suiviseries.activities.EnregistrerSerieActivity"
+32-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:20:19-70
+33            android:windowSoftInputMode="stateHidden" />
+33-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:21:13-54
+34        <activity
+34-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:22:9-23:56
+35            android:name="com.pouillos.suiviseries.activities.AfficherSaisonActivity"
+35-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:22:19-68
+36            android:windowSoftInputMode="stateHidden" />
+36-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:23:13-54
+37        <activity
+37-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:24:9-25:56
+38            android:name="com.pouillos.suiviseries.activities.AfficherEpisodeActivity"
+38-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:24:19-69
+39            android:windowSoftInputMode="stateHidden" />
+39-->C:\Users\TNH\AndroidStudioProjects\SuiviSeries\app\src\main\AndroidManifest.xml:25:13-54
+40    </application>
+41
+42</manifest>

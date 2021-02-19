@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/icons8_camera"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.AccueilActivity">
+        <activity android:name=".activities.AccueilActivity"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

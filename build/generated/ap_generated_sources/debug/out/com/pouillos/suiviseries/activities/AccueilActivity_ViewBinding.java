@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.pouillos.suiviseries.R;
@@ -24,6 +25,7 @@ public class AccueilActivity_ViewBinding implements Unbinder {
     this.target = target;
 
     target.selectedSerie = Utils.findRequiredViewAsType(source, R.id.selectSerie, "field 'selectedSerie'", AutoCompleteTextView.class);
+    target.list_recycler_saison = Utils.findRequiredViewAsType(source, R.id.list_recycler_saison, "field 'list_recycler_saison'", RecyclerView.class);
   }
 
   @Override
@@ -34,5 +36,6 @@ public class AccueilActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.selectedSerie = null;
+    target.list_recycler_saison = null;
   }
 }
