@@ -1623,6 +1623,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable outline_add_circle_outline_black_18dp
 drawable outline_clear_black_24dp
+drawable outline_delete_black_24dp
 drawable outline_home_black_24dp
 drawable outline_save_black_24dp
 drawable test_custom_background
@@ -1789,6 +1790,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fabCancel
+id fabDelete
 id fabSave
 id fade
 id fill

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.stetho.Stetho;
 import com.google.android.material.snackbar.Snackbar;
 import com.pouillos.suiviseries.R;
+import com.pouillos.suiviseries.entities.Episode;
 import com.pouillos.suiviseries.entities.Saison;
 import com.pouillos.suiviseries.entities.Serie;
 import com.pouillos.suiviseries.recycler.adapter.RecyclerAdapterSaison;
@@ -50,6 +51,7 @@ public class AccueilActivity extends NavDrawerActivity implements AdapterView.On
 
         ButterKnife.bind(this);
 
+        nettoyageBD();
         selectedSerie.setOnItemClickListener(this);
 
         listSeriesBD = serieDao.loadAll();
@@ -64,6 +66,15 @@ public class AccueilActivity extends NavDrawerActivity implements AdapterView.On
         listSaison = saisonDao.queryRaw("where vu = ?", "0");
         configureRecyclerView();
         configureOnClickRecyclerView();
+    }
+
+    private void nettoyageBD() {
+      /*  Saison saison = saisonDao.load((long)51);
+        List<Episode> listEpisode = episodeDao.queryRaw("where saison_Id = ?",saison.getId().toString());
+        for (Episode current :listEpisode) {
+            episodeDao.delete(current);
+        }
+        saisonDao.delete(saison);*/
     }
 
     private void configureOnClickRecyclerView(){

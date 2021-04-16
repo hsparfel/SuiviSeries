@@ -12,12 +12,14 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.pouillos.suiviseries.R;
 import com.pouillos.suiviseries.dao.EpisodeDao;
 import com.pouillos.suiviseries.entities.Episode;
 import com.pouillos.suiviseries.entities.Saison;
+import com.pouillos.suiviseries.entities.Serie;
 import com.pouillos.suiviseries.recycler.adapter.RecyclerAdapterEpisode;
 import com.pouillos.suiviseries.utils.BasicUtils;
 import com.pouillos.suiviseries.utils.ItemClickSupport;
@@ -29,6 +31,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import icepick.Icepick;
 
 public class AfficherEpisodeActivity extends NavDrawerActivity implements RecyclerAdapterEpisode.Listener {
@@ -45,6 +48,9 @@ public class AfficherEpisodeActivity extends NavDrawerActivity implements Recycl
 
     @BindView(R.id.list_recycler_episode)
     RecyclerView list_recycler_episode;
+
+    @BindView(R.id.fabDelete)
+    FloatingActionButton fabDelete;
 
     private RecyclerAdapterEpisode adapterEpisode;
 
@@ -80,7 +86,46 @@ public class AfficherEpisodeActivity extends NavDrawerActivity implements Recycl
             nbEpisode = listEpisode.size();
             configureRecyclerView();
             configureOnClickRecyclerView();
+            if(isDerniereSaison() && !saisonTransmise.getSerie().getFini()) {
+                fabDelete.show();
+            }
         }
+    }
+
+    @OnClick(R.id.fabDelete)
+    public void setFabDeleteClick() {
+        for (Episode episode : listEpisode) {
+            episodeDao.delete(episode);
+        }
+        saisonDao.delete(saisonTransmise);
+        if (isOnlySaison()) {
+            serieDao.delete(saisonTransmise.getSerie());
+            ouvrirActiviteSuivante(this, AccueilActivity.class,true);
+
+        } else {
+            ouvrirActiviteSuivante(this, AfficherSaisonActivity.class,"serieId",saisonTransmise.getSerie().getId(),true);
+
+        }
+    }
+
+    private boolean isOnlySaison() {
+        boolean bool = false;
+        List<Saison> listSaison = saisonDao.queryRaw("where serie_Id = ?",saisonTransmise.getSerie().getId().toString());
+        int nbSaison = listSaison.size();
+        if (nbSaison == 0) {
+            bool = true;
+        }
+        return bool;
+    }
+
+    private boolean isDerniereSaison() {
+        boolean bool = false;
+        List<Saison> listSaison = saisonDao.queryRaw("where serie_Id = ?",saisonTransmise.getSerie().getId().toString());
+        int nbSaison = listSaison.size();
+        if (nbSaison == saisonTransmise.getNumSaison()) {
+            bool = true;
+        }
+        return bool;
     }
 
     private void configureOnClickRecyclerView(){
